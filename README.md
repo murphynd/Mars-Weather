@@ -1,6 +1,6 @@
 # _Mars API_
 
-#### _Enter zip code to see the local weather, Sept 9, 2020_
+#### _weather of MARS, Sept 9, 2020_
 
 #### By _**Natalie Murphy & Sean Wilson**_
 
@@ -24,4 +24,4 @@ _app using OpenWeather API _
 
 * open in HTML
 
-Copyright (c) 2020 **_{Natalie Murphy, Garrett P Brown, Ophelia Swen}_**
+Copyright (c) 2020 **_{Natalie Murphy, Sean Wilson}_**
