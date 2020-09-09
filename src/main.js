@@ -2,7 +2,7 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
-//import { temp } from "./js/one.js";
+import { round } from "./js/two.js";
 // import * as oneFunctions from "./js/one.js";
 // example function call: oneFunctions.temp();
 
@@ -31,18 +31,22 @@ $(document).ready(function () {
     console.log(`${response[currentDay].AT.av}`);
 
     $(".Temp").text(
-      `Average temp on Mars today ${response[currentDay].AT.av}°F
-      with a High of ${response[currentDay].AT.mx}°F and a low of ${response[currentDay].AT.mn}°F`
+      `Average temp on Mars today ${round(response[currentDay].AT.av)}°F
+      with a High of ${round(
+        response[currentDay].AT.mx
+      )}°F and a low of ${round(response[currentDay].AT.mn)}°F`
     );
     $(".Earthdate").text(
-      `Todays date on Earth is ${response[currentDay].First_UTC}`
+      `Todays date on Earth is ${Date(response[currentDay].First_UTC)}`
     );
     $(".YTemp").text(
-      `Average temp on Mars yesterday ${response[yesterday].AT.av}°F
-      with a High of ${response[yesterday].AT.mx}°F and a low of ${response[yesterday].AT.mn}°F`
+      `Average temp on Mars yesterday ${round(response[yesterday].AT.av)}°F
+      with a High of ${round(response[yesterday].AT.mx)}°F and a low of ${round(
+        response[yesterday].AT.mn
+      )}°F`
     );
     $(".YEarthdate").text(
-      `Yesterday date on Earth is ${response[yesterday].First_UTC}`
+      `Yesterday date on Earth is ${Date(response[yesterday].First_UTC)}`
     );
     console.log(`${response[yesterday].First_UTC}`);
   }
