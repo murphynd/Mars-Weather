@@ -22,15 +22,28 @@ $(document).ready(function () {
   request.send();
 
   function getElements(response) {
-    let currentDay = `${response.sol_keys[0]}`;
+    let currentDay = `${response.sol_keys[1]}`;
+    let yesterday = `${response.sol_keys[0]}`;
 
     console.log(currentDay);
 
     `${response[currentDay].AT.av}`;
     console.log(`${response[currentDay].AT.av}`);
 
-    $(".sol").text(`${response[currentDay].AT.av}`);
-    $(".date").text(`${response[currentDay].First_UTC}`);
-    console.log(`${response[currentDay].First_UTC}`);
+    $(".Temp").text(
+      `Average temp on Mars today ${response[currentDay].AT.av}°F
+      with a High of ${response[currentDay].AT.mx}°F and a low of ${response[currentDay].AT.mn}°F`
+    );
+    $(".Earthdate").text(
+      `Todays date on Earth is ${response[currentDay].First_UTC}`
+    );
+    $(".YTemp").text(
+      `Average temp on Mars yesterday ${response[yesterday].AT.av}°F
+      with a High of ${response[yesterday].AT.mx}°F and a low of ${response[yesterday].AT.mn}°F`
+    );
+    $(".YEarthdate").text(
+      `Yesterday date on Earth is ${response[yesterday].First_UTC}`
+    );
+    console.log(`${response[yesterday].First_UTC}`);
   }
 });
