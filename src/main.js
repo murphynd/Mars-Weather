@@ -13,6 +13,7 @@ $(document).ready(function () {
   request.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       const response = JSON.parse(this.responseText);
+      console.log(response);
       getElements(response);
     }
   };
@@ -21,12 +22,15 @@ $(document).ready(function () {
   request.send();
 
   function getElements(response) {
-    $(".sol").text(`Sol date is ${response.sol_keys[0]}.`);
-    // $(".showHumidity").text(
-    //   `The humidity in ${zipcode} is ${response.main.humidity}%`
-    // );
-    // $(".showTemp").text(
-    //   `The temperature in fahrenheit is  ${temp(response.main.temp)} degrees.`
-    // );
+    let currentDay = `${response.sol_keys[0]}`;
+
+    console.log(currentDay);
+
+    `${response[currentDay].AT.av}`;
+    console.log(`${response[currentDay].AT.av}`);
+
+    $(".sol").text(`${response[currentDay].AT.av}`);
+    $(".date").text(`${response[currentDay].First_UTC}`);
+    console.log(`${response[currentDay].First_UTC}`);
   }
 });
