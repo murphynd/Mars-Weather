@@ -3,30 +3,68 @@
     <title>Mars Weather</title>
   </head>
   <body>
-    <div class="card">
-      <div class="box">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Mars Weather</h2>
       </div>
-      <h2>Mars Weather</h2>
-      <div class="card">
-        <span class="Earthdate"></span>
-        <span class="Temp"></span>
+      <div class="card mb-3">
+        <img
+          class="card-img-top"
+          src="../src/assets/images/1000MR0044631220503682E01_DXXX.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Today is <span class="Earthdate"></span></h5>
+          <p class="card-text">
+            the Average temp on Mars today <span class="Temp"></span>
+          </p>
+          <p>low of<span class="Low"></span></p>
+          <p>High of<span class="High"></span></p>
+          <p class="card-text">
+            <small class="text-muted">Last updated one Earth Day ago</small>
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <span class="YEarthdate"></span>
-        <span class="YTemp"></span>
-        <span class=""></span>
-        <span class="showTemp"></span>
+
+      <form id="rover">
+        <div class="form-group">
+          <label for="date">Pick a date</label>
+          <input type="date" id="dateinput" />
+        </div>
+        <div class="roverPick">
+          <label for="exampleFormControlSelect1">Pick a rover</label>
+          <select class="form-control" id="roverName">
+            <option>curioustity</option>
+            <option>Opportunity</option>
+            <option>Spirit</option>
+          </select>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div>
+        Tips:
+        <ul>
+          <li>
+            Most rovers did not start taking photos until several days after
+            landing.
+          </li>
+          <li>Curiosity landed on: 2012-08-06</li>
+          <li>Opportunity landed on: 2004-01-25</li>
+          <li>Spirit landed on: 2004-01-04</li>
+        </ul>
+
+        <h2>Image Results</h2>
+        <span>Image Retrieval Status: </span><span id="imageStatus"></span>
+        <br />
+        <span>Rover Name: </span><span id="roverCaption"></span>
+        <br />
+        <span>Landing Date: </span><span id="landingCaption"></span>
+        <br />
+        <span>Expected End Date: </span><span id="endingCaption"></span>
+        <br />
+        <h2>Rover Image</h2>
+        <img id="imageID" src="" />
       </div>
     </div>
   </body>
